@@ -5,7 +5,7 @@
 #Import Dependencies
 import turtle
 from TurtleLetterUtils import fillLetter
-#from playsound import playsound
+from playsound import playsound
 import time
 from menudoodle import MenuDoodle
 
@@ -243,7 +243,7 @@ def logo(screen):
     printText(Bottom_Text, "LABS", 1, -49, "black", 28)
     screen.update()
 
-    #playsound("GeorgeBootUp.wav")
+    playsound("GeorgeBootUp.wav")
     time.sleep(1.5)
     
     Black_Hex.clear()
@@ -496,7 +496,6 @@ def main():
     doodler =  MenuDoodle()
     screen = doodler.getScreen()
 
-    #playsound("New_Sanson_Labs_Logo_Sound-CHILL.wav", False)
     logo(screen)
 
     text = turtle.RawTurtle(screen)
@@ -515,7 +514,7 @@ def main():
     text.pencolor("lime")
     #Backbackground
 
-    #playsound("Woosh.wav", block=False)
+    playsound("Woosh.wav", block=False)
 
     T(text)
     e(-182.54, -57.25, 1, text)
@@ -617,9 +616,6 @@ def main():
 
     screen.update()
 
-    #tk.Button(master = GUI, text = "Quit", command = GUI.destroy).pack(side=tk.LEFT)
-    #screen.mainloop()
-
     time.sleep(3)
     screen.clear()
     screen.tracer(100)
@@ -628,7 +624,7 @@ def main():
 
     #####################################################################################
 
-    #playsound("Sanson Labs Tea Machine Deep AI British Voice.wav", block=False)
+    playsound("Sanson Labs Tea Machine Deep AI British Voice.wav", block=False)
 
     #Generate Menu Interface
     lineDoodler = turtle.RawTurtle(screen)

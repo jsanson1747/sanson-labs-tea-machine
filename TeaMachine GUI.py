@@ -240,7 +240,7 @@ def logo(screen):
     Circle.hideturtle()
 
     printText(Top_Text, "SANSON", 1, -4, "black", 20) #28
-    printText(Bottom_Text, "LABS", 1, -40, "black", 20) #28
+    printText(Bottom_Text, "LABS", 1, -30, "black", 20) #28
     screen.update()
 
     subprocess.run(["aplay", "./GeorgeBootUp.wav"], shell=False)

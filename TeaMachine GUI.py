@@ -771,10 +771,15 @@ def main():
     InstructionText = doodler.Text(80, -155, "Please Customize Your Tea", fontColor="black", alignment="center", font="Arial", fontSize=25, fontType="bold")
     InstructionText.print()
 
+    exitButton = doodler.Button(340, 170, 2.5, 3.5, color = "red", pressedColor = "darkred", onClick = lambda: doodler.terminate())
+
+    text1 = doodler.Text(340, 200, "Exit")
+    text1.print()
+
     #Main Loop
     screen.tracer(1)
-    menuLoader.run()
-    
+
+    doodler.getGUI().after(0, menuLoader.run)
     doodler.mainloop()
     
 if __name__ == "__main__":

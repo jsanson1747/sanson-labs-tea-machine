@@ -624,7 +624,7 @@ def main():
 
     #####################################################################################
 
-    playsound("Sanson Labs Tea Machine Deep AI British Voice.wav", block=False)
+    subprocess.Popen(["aplay", "-N", "./Sanson Labs Tea Machine Deep AI British Voice.wav"], shell=False)
 
     #Generate Menu Interface
     lineDoodler = turtle.RawTurtle(screen)

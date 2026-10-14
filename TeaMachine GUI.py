@@ -7,12 +7,11 @@ import turtle
 from TurtleLetterUtils import fillLetter
 #from playsound import playsound
 import time
-import MenuDoodle
-from MenuDoodleSetup import screen
+from menudoodle import MenuDoodle
 
 #########################################################
 
-def logo():
+def logo(screen):
     def makeTurtles():
         a = turtle.RawTurtle(screen)
         a.penup()
@@ -261,25 +260,9 @@ def logo():
     screen.update()
 
 
-#####################################################################################
-#playsound("New_Sanson_Labs_Logo_Sound-CHILL.wav", False)
-logo()
+#########################################################
 
-
-text = turtle.RawTurtle(screen)
-text.hideturtle()
-screen.tracer(30)
-text.speed("fastest")
-
-
-time.sleep(0.1)
-screen.bgcolor("light gray")
-time.sleep(0.1)
-screen.bgcolor("gray")
-time.sleep(0.1)
-
-
-def T():
+def T(text):
     text.penup()
     text.goto(-300, 130)
     text.pendown()
@@ -301,7 +284,7 @@ def T():
     text.forward(30)
     text.penup()
 
-def e(x, y, scale):
+def e(x, y, scale, text):
     text.goto(x, y)
     text.pendown()
     text.seth(90)
@@ -330,7 +313,7 @@ def e(x, y, scale):
     text.forward(70 * scale)
     text.penup()
 
-def a(x, y, scale):
+def a(x, y, scale, text):
     text.goto(x, y)
     text.seth(20)
     text.pendown()
@@ -366,7 +349,7 @@ def a(x, y, scale):
     text.forward(20 * scale)
     text.penup()
 
-def M():
+def M(text):
     text.goto(-137, -179)
     text.seth(20)
     text.forward(10)
@@ -393,7 +376,7 @@ def M():
     text.forward(20)
     text.penup()
 
-def c():
+def c(text):
     text.showturtle()
     text.penup()
     text.goto(15.02, -125.09)
@@ -418,7 +401,7 @@ def c():
     text.forward(52.5)
     text.penup()
 
-def h():
+def h(text):
     text.seth(20)
     text.forward(61.5)
     text.pendown()
@@ -448,7 +431,7 @@ def h():
     text.forward(15)
     text.penup()
 
-def i():
+def i(text):
     text.seth(20)
     text.forward(61.5)
     text.pendown()
@@ -478,7 +461,7 @@ def i():
     text.forward(52.5)
     text.penup()
 
-def n():
+def n(text):
     text.seth(20)
     text.forward(61.5)
     text.pendown()
@@ -507,278 +490,295 @@ def n():
     text.penup()
     text.seth(20)
     text.forward(68.5)
-    
-                
-text.pensize(56) #50
-text.pencolor("lime")
-#Backbackground
 
-#playsound("Woosh.wav", block=False)
+def main():
 
-T()
-e(-182.54, -57.25, 1)
-a(-107.36, -29.89, 1)
+    doodler =  MenuDoodle()
+    screen = doodler.getScreen()
 
-M()
-a(-33.84,-142.87, 0.75)
-c()
-h()
-i()
-n()
-e(259.41,-36.20, 0.75)
+    #playsound("New_Sanson_Labs_Logo_Sound-CHILL.wav", False)
+    logo(screen)
 
+    text = turtle.RawTurtle(screen)
+    text.hideturtle()
+    screen.tracer(30)
+    text.speed("fastest")
+
+    time.sleep(0.1)
+    screen.bgcolor("light gray")
+    time.sleep(0.1)
+    screen.bgcolor("gray")
+    time.sleep(0.1)
   
-text.pensize(42) #36
-text.pencolor("black")
-#Background
+     
+    text.pensize(56) #50
+    text.pencolor("lime")
+    #Backbackground
 
-T()
-e(-182.54, -57.25, 1)
-a(-107.36, -29.89, 1)
+    #playsound("Woosh.wav", block=False)
 
-M()
-a(-33.84,-142.87, 0.75)
-c()
-h()
-i()
-n()
-e(259.41,-36.20, 0.75)
+    T(text)
+    e(-182.54, -57.25, 1, text)
+    a(-107.36, -29.89, 1, text)
 
+    M(text)
+    a(-33.84,-142.87, 0.75, text)
+    c(text)
+    h(text)
+    i(text)
+    n(text)
+    e(259.41,-36.20, 0.75, text)
 
-text.pensize(4)
-text.pencolor("white")
+    
+    text.pensize(42) #36
+    text.pencolor("black")
+    #Background
 
-#Text
+    T(text)
+    e(-182.54, -57.25, 1, text)
+    a(-107.36, -29.89, 1, text)
 
-T()
-e(-182.54, -57.25, 1)
-a(-107.36, -29.89, 1)
-
-M()
-a(-33.84,-142.87, 0.75)
-c()
-h()
-i()
-n()
-e(259.41,-36.20, 0.75)
-
-fillTurt = turtle.RawTurtle(screen)
-#Fill T
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 85, vertDist = 30, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -300, y = 130, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 30, vertDist = 230, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 85, vertDist = 30, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-#Fill E
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 100, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -182.54, y = 42.75, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 35, vertDist = 100, gap = 20, numGaps = 2, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 100, gap = 60, numGaps = 1, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-#Fill A
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 100, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -107.54, y = 70.11, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 30, vertDist = 100, gap = 'n/a', numGaps = 'n/a', gapList = [20, 40, 20, 20, 1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 100, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-
-#Fill M
-(upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [-55, 20], x = [-127.60, -127.60], y = [-45.58, -175.58], color = "white", size = 4)
-(upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 55.7, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [-55.5, -54.5], x = [upperTurtX - 1, lowerTurtX - 1], y = [upperTurtY, lowerTurtY + 67], color = "white", size = 4)
-(upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 44, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [67.5, 67.5], x = [upperTurtX + 5, lowerTurtX], y = [upperTurtY, lowerTurtY], color = "white", size = 4)
-(upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [67.5, 20], x = [upperTurtX + 1, lowerTurtX], y = [upperTurtY + 1, lowerTurtY - 45], color = "white", size = 4)
-(upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [67.5, 20], x = [upperTurtX + 1, -60.45], y = [upperTurtY, -151.68], color = "white", size = 4)
-
-#Fill A
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -33.84, y = -67.87, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 26, vertDist = 75, gap = 'n/a', numGaps = 'n/a', gapList = [15, 30, 15, 15, 1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-
-#Fill C
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 22.54, y = -47.35, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 39.5, vertDist = 75, gap = 45, numGaps = 1, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-
-#Fill H
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 80.33, y = -26.32, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 24.5, vertDist = 75, gap = "n/a", numGaps = "n/a", gapList = [30, 15, 30, -1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-
-#Fill I
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 75, gap = "n/a", numGaps = "n/a", gapList = [15, 45, 15, 1], slope = 20, x = 138.12, y = -5.29, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = "n/a", numGaps = "n/a", gapList = [15, 45, 15, 1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-
-#Fill N
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 195.91, y = 15.75, color = "white", size = 4)
-(upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 50, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [-67, -67], x = [xPos + 3, xPos + 3], y = [19.75, 0.75], color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 235.91, y = 29.62, color = "white", size = 4)
-
-#Fill E
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 259.41, y = 38.8, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 26.25, vertDist = 75, gap = 15, numGaps = 2, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
-(xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 11.25, vertDist = 75, gap = 45, numGaps = 1, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    M(text)
+    a(-33.84,-142.87, 0.75, text)
+    c(text)
+    h(text)
+    i(text)
+    n(text)
+    e(259.41,-36.20, 0.75, text)
 
 
-screen.update()
+    text.pensize(4)
+    text.pencolor("white")
 
-#tk.Button(master = GUI, text = "Quit", command = GUI.destroy).pack(side=tk.LEFT)
-#screen.mainloop()
+    #Text
 
-time.sleep(3)
-screen.clear()
-screen.tracer(100)
+    T(text)
+    e(-182.54, -57.25, 1, text)
+    a(-107.36, -29.89, 1, text)
 
-screen.bgcolor("light gray")
+    M(text)
+    a(-33.84,-142.87, 0.75, text)
+    c(text)
+    h(text)
+    i(text)
+    n(text)
+    e(259.41,-36.20, 0.75, text)
 
-#####################################################################################
+    fillTurt = turtle.RawTurtle(screen)
+    #Fill T
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 85, vertDist = 30, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -300, y = 130, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 30, vertDist = 230, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 85, vertDist = 30, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    #Fill E
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 100, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -182.54, y = 42.75, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 35, vertDist = 100, gap = 20, numGaps = 2, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 100, gap = 60, numGaps = 1, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    #Fill A
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 100, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -107.54, y = 70.11, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 30, vertDist = 100, gap = 'n/a', numGaps = 'n/a', gapList = [20, 40, 20, 20, 1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 100, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
 
-#playsound("Sanson Labs Tea Machine Deep AI British Voice.wav", block=False)
+    #Fill M
+    (upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [-55, 20], x = [-127.60, -127.60], y = [-45.58, -175.58], color = "white", size = 4)
+    (upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 55.7, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [-55.5, -54.5], x = [upperTurtX - 1, lowerTurtX - 1], y = [upperTurtY, lowerTurtY + 67], color = "white", size = 4)
+    (upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 44, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [67.5, 67.5], x = [upperTurtX + 5, lowerTurtX], y = [upperTurtY, lowerTurtY], color = "white", size = 4)
+    (upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [67.5, 20], x = [upperTurtX + 1, lowerTurtX], y = [upperTurtY + 1, lowerTurtY - 45], color = "white", size = 4)
+    (upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [67.5, 20], x = [upperTurtX + 1, -60.45], y = [upperTurtY, -151.68], color = "white", size = 4)
 
-#Generate Menu Interface
-lineDoodler = turtle.RawTurtle(screen)
-lineDoodler.hideturtle()
-lineDoodler.pencolor("black")
-lineDoodler.pensize(4)
+    #Fill A
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = -33.84, y = -67.87, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 26, vertDist = 75, gap = 'n/a', numGaps = 'n/a', gapList = [15, 30, 15, 15, 1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
 
-#Generate Box
-menuFrame = MenuDoodle.Box(780, 456, -390, 228, False, "black", True, "gray", 10)
-menuFrame.draw()
-imageFrame = MenuDoodle.Box(200, 250, -360, 200, True, "white", True, "black", 4)
-imageFrame.draw()
+    #Fill C
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 22.54, y = -47.35, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 39.5, vertDist = 75, gap = 45, numGaps = 1, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
 
-teaMugYShifter = 0
+    #Fill H
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 80.33, y = -26.32, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 24.5, vertDist = 75, gap = "n/a", numGaps = "n/a", gapList = [30, 15, 30, -1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 13, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
 
-#Generate Tea Mug
-cupBox = MenuDoodle.Box(60, 50, -290, 100 + teaMugYShifter, True, "gray", False, "black", 4)
-cupBox.draw()
-mugBottomFill = MenuDoodle.Ellipse(-260, 50 + teaMugYShifter, 30, 10, 4, "grey", True)
-mugBottomFill.draw()
-mugOpening = MenuDoodle.Ellipse(-260, 100 + teaMugYShifter, 30, 10, 4)
-mugOpening.draw()
-tea = MenuDoodle.Ellipse(-260, 100 + teaMugYShifter, 26, 6, 4, "brown", True, 1)
-tea.draw()
-lineDoodler.penup()
-lineDoodler.goto(-290, 100 + teaMugYShifter)
-lineDoodler.pendown()
-lineDoodler.seth(-90)
-lineDoodler.forward(50)
-mugBottom = MenuDoodle.Ellipse(-260, 50 + teaMugYShifter, 30, 10, 4, "Black", False, "bot")
-mugBottom.draw()
-lineDoodler.penup()
-lineDoodler.goto(-230, 50 + teaMugYShifter)
-lineDoodler.pendown()
-lineDoodler.seth(90)
-lineDoodler.forward(50)
-mugHandle = MenuDoodle.Ellipse(-230, 72 + teaMugYShifter, 16, 16, 6, "Black", False, "right")
-mugHandle.draw()
-screen.update()
+    #Fill I
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 20, vertDist = 75, gap = "n/a", numGaps = "n/a", gapList = [15, 45, 15, 1], slope = 20, x = 138.12, y = -5.29, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = "n/a", numGaps = "n/a", gapList = [15, 45, 15, 1], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
 
-#Define Tea Attributes
-global steepTime
-global numSugars
-global numCreams
+    #Fill N
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 195.91, y = 15.75, color = "white", size = 4)
+    (upperTurtX, upperTurtY, lowerTurtX, lowerTurtY) = fillLetter(fillTurt, screen, horizDist = 50, vertDist = 'n/a', gap = 'n/a', numGaps = 'n/a', gapList = [], slope = [-67, -67], x = [xPos + 3, xPos + 3], y = [19.75, 0.75], color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 235.91, y = 29.62, color = "white", size = 4)
 
-steepTime = 3 #Default steep time
-numSugars = 0 #Default number of sugars
-numCreams = 0 #Default number of creams
+    #Fill E
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 15, vertDist = 75, gap = 0, numGaps = 0, gapList = [], slope = 20, x = 259.41, y = 38.8, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 26.25, vertDist = 75, gap = 15, numGaps = 2, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
+    (xPos, yPos) = fillLetter(fillTurt, screen, horizDist = 11.25, vertDist = 75, gap = 45, numGaps = 1, gapList = [], slope = 20, x = xPos, y = yPos, color = "white", size = 4)
 
-#Define Button Functions
-def addSugar():
-    global numSugars
-    if numSugars < 10:
-        numSugars += 1
-        SugarDisplay.setText(numSugars)
-        SugarDisplay.print()
 
-def removeSugar():
-    global numSugars
-    if numSugars > 0:
-        numSugars -= 1
-        SugarDisplay.setText(numSugars)
-        SugarDisplay.print()
+    screen.update()
 
-def addCreams():
-    global numCreams
-    if numCreams < 10:
-        numCreams += 1
-        CreamDisplay.setText(numCreams)
-        CreamDisplay.print()
-    if numCreams == 1:
-        tea = MenuDoodle.Ellipse(-260, 100 + teaMugYShifter, 26, 6, 4, "tan", True, 1)
-        screen.tracer(100)
-        tea.draw()
-        screen.tracer(1)
-        screen.update()
+    #tk.Button(master = GUI, text = "Quit", command = GUI.destroy).pack(side=tk.LEFT)
+    #screen.mainloop()
 
-def removeCreams():
-    global numCreams
-    if numCreams > 0:
-        numCreams -= 1
-        CreamDisplay.setText(numCreams)
-        CreamDisplay.print()
-    if numCreams == 0:
-        tea = MenuDoodle.Ellipse(-260, 100 + teaMugYShifter, 26, 6, 4, "brown", True, 1)
-        screen.tracer(100)
-        tea.draw()
-        screen.tracer(1)
-        screen.update()
+    time.sleep(3)
+    screen.clear()
+    screen.tracer(100)
 
-def addTime():
+    screen.bgcolor("light gray")
+
+    #####################################################################################
+
+    #playsound("Sanson Labs Tea Machine Deep AI British Voice.wav", block=False)
+
+    #Generate Menu Interface
+    lineDoodler = turtle.RawTurtle(screen)
+    lineDoodler.hideturtle()
+    lineDoodler.pencolor("black")
+    lineDoodler.pensize(4)
+
+    #Generate Box
+    menuFrame = doodler.Box(780, 456, -390, 228, fill=False, fillColor="black", outline=True, outlineColor="gray", outlineWeight=10)
+    menuFrame.draw()
+    imageFrame = doodler.Box(200, 250, -360, 200, fill=True, fillColor="white", outline=True, outlineColor="black", outlineWeight=4)
+    imageFrame.draw()
+
+    teaMugYShifter = 0
+
+    #Generate Tea Mug
+    cupBox = doodler.Box(60, 50, -290, 100 + teaMugYShifter, fill=True, fillColor="gray", outline=False, outlineColor="black", outlineWeight=4)
+    cupBox.draw()
+    mugBottomFill = doodler.Ellipse(-260, 50 + teaMugYShifter, 30, 10, fill=True, color="grey", outlineWeight=4)
+    mugBottomFill.draw()
+    mugOpening = doodler.Ellipse(-260, 100 + teaMugYShifter, 30, 10, outlineWeight=4)
+    mugOpening.draw()
+    tea = doodler.Ellipse(-260, 100 + teaMugYShifter, 26, 6, fill=True, color="brown", outlineWeight=4)
+    tea.draw()
+    lineDoodler.penup()
+    lineDoodler.goto(-290, 100 + teaMugYShifter)
+    lineDoodler.pendown()
+    lineDoodler.seth(-90)
+    lineDoodler.forward(50)
+    mugBottom = doodler.Ellipse(-260, 50 + teaMugYShifter, 30, 10, fill=False, color="Black", half="bottom", outlineWeight=4)
+    mugBottom.draw()
+    lineDoodler.penup()
+    lineDoodler.goto(-230, 50 + teaMugYShifter)
+    lineDoodler.pendown()
+    lineDoodler.seth(90)
+    lineDoodler.forward(50)
+    mugHandle = doodler.Ellipse(-230, 72 + teaMugYShifter, 16, 16, fill=False, color="Black", half="right", outlineWeight=6)
+    mugHandle.draw()
+    screen.update()
+    
+    #Define Tea Attributes
     global steepTime
-    if steepTime < 10:
-        steepTime += 1
-        steepTimeDisplay.setText(str(steepTime) + " min")
-        steepTimeDisplay.print()
+    global numSugars
+    global numCreams
 
-def removeTime():
-    global steepTime
-    if steepTime > 1:
-        steepTime -= 1
-        steepTimeDisplay.setText(str(steepTime) + " min")
-        steepTimeDisplay.print()
-        
-#Button Shifters
-buttonYShifter = 60
-#Steep Time Button Shifter
-button1XShifter = -50
-#Sugar Button Shifter
-button2XShifter = 50
-#Cream Button Shifter
-button3XShifter = 150
+    steepTime = 3 #Default steep time
+    numSugars = 0 #Default number of sugars
+    numCreams = 0 #Default number of creams
 
-#Generate Buttons
-#Generate Steep time Button
-addSteepTimeButton = MenuDoodle.Button(addTime, -40 + button1XShifter, 10 + buttonYShifter, 3.5, 2.5, 4, "lime", "green", "triangle", 90)
-removeSteepTimeButton = MenuDoodle.Button(removeTime, -40 + button1XShifter, -50 + buttonYShifter, 3.5, 2.5, 4, "lime", "green", "triangle", -90)
-steepTimeDisplay = MenuDoodle.Text(-40 + button1XShifter, -34 + buttonYShifter, str(steepTime) + " min" , "black", "center", "Arial", 18, "bold")
-steepTimeDisplay.print()
-steepTimeMinutes = MenuDoodle.Text(-36 + button1XShifter, 50 + buttonYShifter, "Steep\nTime", "black", "center", "Arial", 20, "bold")
-steepTimeMinutes.print()
+    #Define Button Functions
+    def addSugar():
+        global numSugars
+        if numSugars < 10:
+            numSugars += 1
+            SugarDisplay.setText(numSugars)
+            SugarDisplay.print()
 
-#Generate Sugar Button
-addSugarButton = MenuDoodle.Button(addSugar, -40 + button2XShifter, 10 + buttonYShifter, 3.5, 2.5, 4, "lime", "green", "triangle", 90)
-removeSugarButton = MenuDoodle.Button(removeSugar, -40 + button2XShifter, -50 + buttonYShifter, 3.5, 2.5, 4, "lime", "green", "triangle", -90)
-SugarDisplay = MenuDoodle.Text(-40 + button2XShifter, -34 + buttonYShifter, numSugars, "black", "center", "Arial", 18, "bold")
-SugarDisplay.print()
-NumberOfSugars = MenuDoodle.Text(-36 + button2XShifter, 50 + buttonYShifter, "Sugar", "black", "center", "Arial", 20, "bold")
-NumberOfSugars.print()
+    def removeSugar():
+        global numSugars
+        if numSugars > 0:
+            numSugars -= 1
+            SugarDisplay.setText(numSugars)
+            SugarDisplay.print()
 
-#Generate Cream Button
-addCreamButton = MenuDoodle.Button(addCreams, -40 + button3XShifter, 10 + buttonYShifter, 3.5, 2.5, 4, "lime", "green", "triangle", 90)
-removeCreamButton = MenuDoodle.Button(removeCreams, -40 + button3XShifter, -50 + buttonYShifter, 3.5, 2.5, 4, "lime", "green", "triangle", -90)
-CreamDisplay = MenuDoodle.Text(-40 + button3XShifter, -34 + buttonYShifter, numCreams, "black", "center", "Arial", 18, "bold")
-CreamDisplay.print()
-NumberOfCreams = MenuDoodle.Text(-36 + button3XShifter, 50 + buttonYShifter, "Cream", "black", "center", "Arial", 20, "bold")
-NumberOfCreams.print()
+    def addCreams():
+        global numCreams
+        if numCreams < 10:
+            numCreams += 1
+            CreamDisplay.setText(numCreams)
+            CreamDisplay.print()
+        if numCreams == 1:
+            tea = doodler.Ellipse(-260, 100 + teaMugYShifter, 26, 6, fill=True, color="tan", outlineWeight=4)
+            screen.tracer(100)
+            tea.draw()
+            screen.tracer(1)
+            screen.update()
 
-menuLoader = MenuDoodle.Loader(-260, -140, 40, 6, "black", "light gray")
-InstructionText = MenuDoodle.Text(80, -155, "Please Customize Your Tea", "black", "center", "Arial", 25, "bold")
-InstructionText.print()
+    def removeCreams():
+        global numCreams
+        if numCreams > 0:
+            numCreams -= 1
+            CreamDisplay.setText(numCreams)
+            CreamDisplay.print()
+        if numCreams == 0:
+            tea = doodler.Ellipse(-260, 100 + teaMugYShifter, 26, 6, fill=True, color="brown", outlineWeight=4)
+            screen.tracer(100)
+            tea.draw()
+            screen.tracer(1)
+            screen.update()
 
-#Main Loop
-screen.tracer(1)
-while True:
-    addSteepTimeButton.clicked()
-    removeSteepTimeButton.clicked()
-    addSugarButton.clicked()
-    removeSugarButton.clicked()
-    addCreamButton.clicked()
-    removeCreamButton.clicked()
+    def addTime():
+        global steepTime
+        if steepTime < 10:
+            steepTime += 1
+            steepTimeDisplay.setText(str(steepTime) + " min")
+            steepTimeDisplay.print()
+
+    def removeTime():
+        global steepTime
+        if steepTime > 1:
+            steepTime -= 1
+            steepTimeDisplay.setText(str(steepTime) + " min")
+            steepTimeDisplay.print()
+            
+    #Button Shifters
+    buttonYShifter = 60
+    #Steep Time Button Shifter
+    button1XShifter = -50
+    #Sugar Button Shifter
+    button2XShifter = 50
+    #Cream Button Shifter
+    button3XShifter = 150
+
+    #Generate Buttons
+    #Generate Steep time Button
+    addSteepTimeButton = doodler.Button(-40 + button1XShifter, 10 + buttonYShifter, 3.5, 2.5, onClick=addTime, color="lime", pressedColor="green", shape="triangle", angle=90, outlineWeight=4)
+    removeSteepTimeButton = doodler.Button(-40 + button1XShifter, -50 + buttonYShifter, 3.5, 2.5, onClick=removeTime, color="lime", pressedColor="green", shape="triangle", angle=-90, outlineWeight=4)
+    steepTimeDisplay = doodler.Text(-40 + button1XShifter, -34 + buttonYShifter, str(steepTime) + " min" , fontColor="black", alignment="center", font="Arial", fontSize=18, fontType="bold")
+    steepTimeDisplay.print()
+    steepTimeMinutes = doodler.Text(-36 + button1XShifter, 50 + buttonYShifter, "Steep\nTime", fontColor="black", alignment="center", font="Arial", fontSize=20, fontType="bold")
+    steepTimeMinutes.print()
+
+    #Generate Sugar Button
+    addSugarButton = doodler.Button(-40 + button2XShifter, 10 + buttonYShifter, 3.5, 2.5, onClick=addSugar, color="lime", pressedColor="green", shape="triangle", angle=90, outlineWeight=4)
+    removeSugarButton = doodler.Button(-40 + button2XShifter, -50 + buttonYShifter, 3.5, 2.5, onClick=removeSugar, color="lime", pressedColor="green", shape="triangle", angle=-90, outlineWeight=4)
+    SugarDisplay = doodler.Text(-40 + button2XShifter, -34 + buttonYShifter, numSugars, fontColor="black", alignment="center", font="Arial", fontSize=18, fontType="bold")
+    SugarDisplay.print()
+    NumberOfSugars = doodler.Text(-36 + button2XShifter, 50 + buttonYShifter, "Sugar", fontColor="black", alignment="center", font="Arial", fontSize=20, fontType="bold")
+    NumberOfSugars.print()
+
+    #Generate Cream Button
+    addCreamButton = doodler.Button(-40 + button3XShifter, 10 + buttonYShifter, 3.5, 2.5, onClick=addCreams, color="lime", pressedColor="green", shape="triangle", angle=90, outlineWeight=4)
+    removeCreamButton = doodler.Button(-40 + button3XShifter, -50 + buttonYShifter, 3.5, 2.5, onClick=removeCreams, color="lime", pressedColor="green", shape="triangle", angle=-90, outlineWeight=4)
+    CreamDisplay = doodler.Text(-40 + button3XShifter, -34 + buttonYShifter, numCreams, fontColor="black", alignment="center", font="Arial", fontSize=18, fontType="bold")
+    CreamDisplay.print()
+    NumberOfCreams = doodler.Text(-36 + button3XShifter, 50 + buttonYShifter, "Cream", fontColor="black", alignment="center", font="Arial", fontSize=20, fontType="bold")
+    NumberOfCreams.print()
+
+    menuLoader = doodler.Loader(-260, -140, 40, loaderColor="black", eraserColor="light gray", outlineWeight=6)
+    InstructionText = doodler.Text(80, -155, "Please Customize Your Tea", fontColor="black", alignment="center", font="Arial", fontSize=25, fontType="bold")
+    InstructionText.print()
+
+    #Main Loop
+    screen.tracer(1)
     menuLoader.run()
+    
+    doodler.mainloop()
+    
+if __name__ == "__main__":
+    main()
     
     
 

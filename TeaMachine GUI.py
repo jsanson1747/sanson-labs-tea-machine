@@ -514,7 +514,7 @@ def main():
     text.pencolor("lime")
     #Backbackground
 
-    subprocess.run(["aplay", "./Woosh.wav", "--nonblock"], shell=False)
+    subprocess.run(["aplay", "--nonblock", "./Woosh.wav"], shell=False)
 
     T(text)
     e(-182.54, -57.25, 1, text)

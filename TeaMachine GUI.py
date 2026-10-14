@@ -5,8 +5,8 @@
 #Import Dependencies
 import turtle
 from TurtleLetterUtils import fillLetter
-from playsound import playsound
 import time
+import subprocess
 from menudoodle import MenuDoodle
 
 #########################################################
@@ -243,7 +243,7 @@ def logo(screen):
     printText(Bottom_Text, "LABS", 1, -49, "black", 28)
     screen.update()
 
-    playsound("GeorgeBootUp.wav")
+    subprocess.run(["aplay", "./GeorgeBootUp.wav"], shell=False)
     time.sleep(1.5)
     
     Black_Hex.clear()

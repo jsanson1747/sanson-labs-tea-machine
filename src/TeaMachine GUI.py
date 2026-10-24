@@ -8,6 +8,7 @@ from TurtleLetterUtils import fillLetter
 import time
 import subprocess
 from menudoodle import MenuDoodle
+from utils import playWavSound
 
 #########################################################
 
@@ -243,7 +244,7 @@ def logo(screen):
     printText(Bottom_Text, "LABS", 1, -49, "black", 28)
     screen.update()
 
-    subprocess.run(["aplay", "./GeorgeBootUp.wav"], shell=False)
+    playWavSound("./GeorgeBootUp.wav")
     time.sleep(1.5)
     
     Black_Hex.clear()
@@ -514,7 +515,8 @@ def main():
     text.pencolor("lime")
     #Backbackground
 
-    subprocess.Popen(["aplay", "-N", "./Woosh.wav"], shell=False)
+    # subprocess.Popen(["aplay", "-N", "./Woosh.wav"], shell=False)
+    playWavSound("./Woosh.wav", blocking=False)
 
     T(text)
     e(-182.54, -57.25, 1, text)
@@ -624,7 +626,8 @@ def main():
 
     #####################################################################################
 
-    subprocess.Popen(["aplay", "-N", "./Sanson Labs Tea Machine Deep AI British Voice.wav"], shell=False)
+    # subprocess.Popen(["aplay", "-N", "./Sanson Labs Tea Machine Deep AI British Voice.wav"], shell=False)
+    playWavSound("./Sanson Labs Tea Machine Deep AI British Voice.wav", blocking=False)
 
     #Generate Menu Interface
     lineDoodler = turtle.RawTurtle(screen)

@@ -4,11 +4,11 @@
 
 #Import Dependencies
 import turtle
-from TurtleLetterUtils import fillLetter
+from src.TurtleLetterUtils import fillLetter
 import time
 import subprocess
 from menudoodle import MenuDoodle
-from utils import playWavSound
+from src.utils import playWavSound
 
 #########################################################
 

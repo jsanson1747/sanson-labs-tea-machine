@@ -1,9 +1,9 @@
 import turtle
 import math
 
-def fillLetter(fillTurt, screen, horizDist, vertDist, gap, numGaps, gapList, slope, x, y, color, size):
+def fillLetter(fillTurt, lowerTurt, upperTurt, screen, horizDist, vertDist, gap, numGaps, gapList, slope, x, y, color, size):
     fillTurt.penup()
-    fillTurt.hideturtle()
+    
     fillTurt.pencolor(color)
     fillTurt.pensize(size)
     fillTurt.seth(270)
@@ -52,16 +52,9 @@ def fillLetter(fillTurt, screen, horizDist, vertDist, gap, numGaps, gapList, slo
         upperY = y[0]
         lowerY = y[1]
         
-        lowerTurt = turtle.RawTurtle(screen)
-        lowerTurt.penup()
-        lowerTurt.hideturtle()
+        
         lowerTurt.goto(lowerX, lowerY)
-
-        upperTurt = turtle.RawTurtle(screen)
-        upperTurt.penup()
-        upperTurt.hideturtle()
         upperTurt.goto(upperX, upperY)
-
         
         upperSlope = slope[0]
         lowerSlope = slope[1]
